@@ -10,11 +10,15 @@ import adminRoutes from "./routes/adminRoutes.js";
 import sendEmail from "./utils/sendEmail.js";
 import cron from "./utils/notifications.js";
 import path from "path";
+import { fileURLToPath } from 'url';
 
 const app = express();
 
 //COnnect with database
 connectDB();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //middlewares
 app.use(cors());
